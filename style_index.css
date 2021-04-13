@@ -1,0 +1,58 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0px;
+  background-color: black;
+}
+
+g {
+  transform-origin: left;
+}
+
+div {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation: loaded forwards 1s ease-in 2s;
+}
+
+.spinner {
+  transform-origin: center;
+  transform-box: fill-box;
+}
+
+.gear1 {
+  animation: spin_o infinite 4s linear;
+}
+
+.gear2 {
+  animation: spin_a infinite 3s linear;
+}
+
+@keyframes spin_o {
+    from {
+        transform:rotate(0deg);
+    }
+    to {
+        transform:rotate(360deg);
+    }
+}
+
+@keyframes spin_a {
+  from {
+      transform:rotate(360deg);
+  }
+  to {
+      transform:rotate(0deg);
+  }
+}
+
+@keyframes loaded {
+  0%   {top:0px;}
+  100% {top:-100%;}
+}
