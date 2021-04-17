@@ -6,7 +6,8 @@
   <meta name="author" content="Tommaso Bocchietti">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
-    @import url(style_home.css);
+    @import url(./css/style_home.css);
+    @import url(./css/test.css);
   </style>
   <title>Home</title>
 </head>
@@ -26,7 +27,16 @@
   </header>
 
   <main>
-    <img src="Cervello.jpg" style="max-width: 200px;">
+    <div class="frase">What's Next?</div>
+    <div id="particle-container" style="z-index: -1;">
+      <script>
+        var i;
+        for (i = 0; i < 100; i++)
+        {
+          document.write('<div class="particle"></div>');
+        }
+      </script>
+    </div>
   </main>
 
 </body>

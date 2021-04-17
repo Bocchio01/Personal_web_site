@@ -1,13 +1,28 @@
+@import url('https://fonts.googleapis.com/css2?family=Bungee+Shade&family=Permanent+Marker&display=swap');
 
 * {
 	box-sizing: border-box;
 }
 
 body {
-	font-family: 'Montserrat', sans-serif;
+	font-family: 'Bungee Shade', cursive;/*'Montserrat', sans-serif;*/
 	line-height: 1.6;
 	margin: 0;
 	min-height: 100vh;
+	background-color: black;
+}
+
+.frase {
+	position: absolute;
+	width: 100%;
+	top: 45%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-size: 75px;
+	color: orange;
+	text-align: center;
+	z-index: 1;
 }
 
 ul {
@@ -24,25 +39,27 @@ a {
 }
 
 .logo {
+	padding: 14px;
 	margin: 0;
-	font-size: 1.45em;
 	display: block;
     float: left;
+
 }
 
 .logo a,
 .menu a {
-	padding: 14px;
-	text-transform: uppercase;
 	text-align: center;
 	display: block;
+	color: black;
+
 }
 
 .menu a {
-	font-size: .99em;
+	font-size: 1.5em;
+	font-weight: bold;
 }
 
-.menu a:hover {
+.menu a:hover, .logo a:hover {
 	color: orange;
 }
 
@@ -50,13 +67,14 @@ a {
 .header {
 	width: 100%;
 	display: flow-root;
-	position: sticky;
-	position: -webkit-sticky;
+	position: fixed;
 	border: 1px solid #a2a2a2;
 	background-color: white;
 	-webkit-border-radius: 5px;
 	-moz-border-radius: 5px;
 	border-radius: 5px;
+	z-index: 2;
+	
 }
 
 
@@ -72,7 +90,7 @@ a {
 	cursor: pointer;
 	display: flex;
 	float: right;
-	padding: 31px 20px;
+	padding: 38px 20px;
 	position: relative;
 	user-select: none;
 }
@@ -136,7 +154,7 @@ a {
 
 /* 48em = 768px */
 
-@media (min-width: 48em) {
+@media (min-width: 1200px) {
 
   .header li {
     float: left;
@@ -152,4 +170,18 @@ a {
   .header .menu-icon {
     display: none;
   }
+}
+
+@media (max-width: 550px) {
+	
+	.logo, .menu a{
+	font-size: 1.2em;
+}
+.frase{
+	font-size: 35px;
+}
+.menu-icon{
+	padding: 28px 20px !important;
+
+}
 }
