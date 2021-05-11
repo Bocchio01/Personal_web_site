@@ -1,5 +1,7 @@
-body {
-    background: black;
+#particle-container {
+	position: fixed;
+	top: 0px;
+	z-index: -1;
 }
 
 .particle {

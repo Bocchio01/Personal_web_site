@@ -1,0 +1,23 @@
+#slogan {
+	width: 100%;
+	min-height: 100vh;
+	text-align: center;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-size: var(--max_font_size);
+	color: var(--orange);
+	z-index: 1;
+}
+
+@media (max-width: 1200px) {
+	#slogan {
+		font-size: 90px;
+	}
+}
+
+@media (max-width: 570px) {
+	#slogan {
+		font-size: 35px;
+	}
+}
