@@ -1,5 +1,46 @@
+/*--- global ---*/
+@import url('https://fonts.googleapis.com/css2?family=Bungee+Shade&family=Permanent+Marker&display=swap');
+
+* {
+	box-sizing: border-box;
+	margin: 0px;
+}
+
+:root {
+	--black: black;
+	--white: white;
+	--orange: orange;
+	--gray: gray;
+	--header_height: 80px;
+	--max_font_size: 120px;
+	--header_font_size: 28px;
+	--paragraph_font_size: 20px;
+	--padding_articles: 64px;
+	--border_radius: 20px;
+}
+
+body, html {
+	min-height: 100vh;
+}
+
+body {
+	font-family: 'Bungee Shade', cursive;
+	line-height: 1.6;
+	margin: 0;
+	background-color: var(--black);
+	display: flex;
+	flex-direction: column;
+}
+
+a {
+	color: var(--black);
+	text-decoration: none;
+}
+
+
+/*--- header ---*/
 .header {
-	position: absolute;
+	position: relative;
 	width: 100%;
 	font-size: var(--header_font_size);
 	font-weight: bold;
@@ -143,5 +184,78 @@
 	}
 	.header #header_name, .menu li a {
 		font-size: 0.7em;
+	}
+}
+
+
+/*--- footer ---*/
+#footer {
+	/*bottom: 0;*/
+	display: inline-flex;
+	margin-top: auto;
+	width: 100%;
+	font-weight: bold;
+	font-size: calc(0.9*var(--header_font_size));
+	border: 1px solid var(--gray);
+	background-color: var(--white);
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+	z-index: 2;
+	justify-content: center;
+	text-align: center;
+	padding: 20px 20px;
+	color: var(--black);
+}
+
+#footer .social {
+	padding: 10px;
+}
+
+#footer .social a {
+	width: 50px;
+	height: 50px;
+	display: inline-block;
+	border-radius: 50%;
+	border: 1px solid #ccc;
+	margin: 0 8px;
+	color: inherit;
+	overflow: hidden;
+}
+
+#footer .social a:nth-child(1) {
+	background: url('/img/GitHub.png') no-repeat;
+	background-size: contain;
+}
+
+#footer .social a:nth-child(2) {
+	background: url('/img/Telegram.png') no-repeat;
+	background-size: contain;
+	
+}#footer .social a:nth-child(3) {
+	background: url('/img/Instagram.png') no-repeat;
+	background-size: contain;
+}
+
+#footer p {
+	margin: 0px;
+}
+
+#footer #copyright {
+	color: var(--gray);
+	border-top: 1px solid var(--black);;
+}
+
+#footer div a:hover {
+	transform: scale(1.1);
+}
+
+@media (max-width: 1030px) {
+	#footer {
+		font-size: 15px;
+	}
+	#footer .social a {
+		width: 40px;
+		height: 40px;
 	}
 }

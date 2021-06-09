@@ -6,92 +6,47 @@
   <meta name="author" content="Tommaso Bocchietti">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
-    @import url(./css/home.css);
-    @import url(./css/variables.css);
-    @import url(./css/header.css);
+    @import url(./css/base.css);
     @import url(./css/background.css);
     @import url(./css/slogan.css);
     @import url(./css/table.css);
-    @import url(./css/footer.css);
+    @import url(./css/table_base.css);
   </style>
   <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
   <script type="text/javascript" src="https://code.jquery.com/jquery-3.5.0.js"></script>
-  <script>
-    $(function () {
-      $("#header").load("_header.html");
-      $("#footer").load("_footer.html");
-    });
-  </script>
+  <script type="text/javascript" src="/main_function.js"></script>
   <title>Home</title>
 </head>
 
-<body>
+<body onload="riallinea('.main_content')">
   <div id="header"></div>
-  <div id="particle-container">
-    <script type="text/javascript" src="_background.js"></script>
-  </div>
+  <div id="particle-container"></div>
 
   <div id="slogan">What's Next?</div>
 
-    
-    <div class="container">
-      <a href="about.html">Scopri di più</a>
-      <div>
-        <h1 class="title">Chi sono?</h1>
-        <div class="description">Mi chiamo Tommaso e sono uno studente di ingegneria meccanica al Politecnico di
-          Milano (1°anno).<br>
-          Ho sempre voglia di creare cose nuove e molte volte mi ritrovo a guardare il cielo completamente perso nei
-          miei pensieri.<br>
-          Parallelamente agli studi universitari, sviluppo nel tempo libero la passione per l'informatica e la
-          programmazione.<br>
-          Credo fortemente nel contatto con la natura quale fonte di ispirazione, ed è forse anche questo uno
-          dei motivi che mi ha spinto verso l'Orienteering..</div>
-      </div>
-      <div class="separator"></div>
-        <img src="./img/DSC07203__3_1.png">
-    </div>
-
-    <div class="container">
-      <a href="articles.html">Scopri di più</a>
-      <div>
-        <h1 class="title">Contenuti del sito</h1>
-        <div class="description">Suddivisi per aree tematiche, sul sito sono presenti "articoli" riguardanti:
-          <ul>
-            <li>Programmazione;</li>
-            <li>Meccanica;</li>
-            <li>Fisica;</li>
-            <li>Matematica;</li>
-            <li>Orienteering.</li>
-          </ul>
-          I contenuti si divido poi ulteriormente in mie personali riflessioni, curiosità o approfondimenti, e in
-          pagine dedicate alla descrizione di progetti e quindi di natura più strettamente descrittiva.
+  <main>
+    <article>
+      <div class="main_content">
+        <div class="container">
+          <a class="link_hidden">Scopri di più</a>
+          <div>
+            <h1 class="title"></h1>
+            <div class="paragraph"></div>
+          </div>
+          <div class="separator"></div>
+          <img>
         </div>
       </div>
-      <div class="separator"></div>
-      <img src="./img/Maturità.png">
-    </div>
-
-    <div class="container">
-      <a href="#">Scopri di più</a>
-      <div class="sinistra">
-        <h1 class="title">Qual é lo scopo?</h1>
-        <div class="description">Sentivo il bisogno di avere uno spazio completamente mio dove poter condividere con
-          altri le mie idee e i miei progetti.<br>
-          Lo scopo è quindi quello di riuscire a creare una piccola community online di persone aventi interessi o
-          passioni in comune, così da poter sviluppare nuovi progetti insieme.<br>
-          Credo infatti fortemente nella crescita di se stessi tramite il confronto con altri e spero che questo sito
-          possa essere lo strumento giusto per raggiungere quell'obbiettivo.</div>
-      </div>
-      <div class="separator"></div>
-        <img src="./img/DSC07203 (3).png">
-    </div>
-
+    </article>
+  </main>
 
   <div id="footer"></div>
 
 </body>
 <script>
-  $('div.container').odd().css('flex-direction', 'row-reverse');
+  load_header_footer();
+  background();
+  load_articles('data_home');
 </script>
 
 </html>

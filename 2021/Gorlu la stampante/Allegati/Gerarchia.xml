@@ -1,0 +1,147 @@
+﻿<?xml version="1.0"?>
+<tk>windows
+    
+    <frame>main_frame
+        
+        <frame>lang_frame
+            <label>lang_img_it</label>
+            <label>lang_img_en</label>
+            <label>lang_img_fr</label>
+            <button>lang_button_it</button>
+            <button>lang_button_en</button>
+            <button>lang_button_fr</button>
+            <label>...</label>
+            <progressbar>lang_bar</progressbar>
+        </frame>
+        
+        <frame>info_frame
+            <label>info_name</label>
+            <separator>info_separator</separator>
+            <label>info_text_0</label>
+            <label>info_img</label>
+            <label>info_text_1</label>
+        </frame>
+        
+        <frame>config_frame
+            <label>config_text_0</label>
+            <combobox>config_COM</combobox>
+            <separator>config_separator_0</separator>
+            <label>config_text_1</label>
+            <separator>config_separator_1</separator>
+            <label>config_text_2</label>
+            
+            <frame>config_code_frame
+                <text>config_arduino_code</text>
+                <scrollbar>config_arduino_scrol</scrollbar>
+            </frame>
+            
+            <button>config_save_code</button>
+        </frame>
+        
+        <frame>calibration_frame
+            
+            <frame>calibration_setting_frame
+                <label>calibration_setting_text_0</label>
+                <label>calibration_setting_text_1</label>
+                <entry>calibration_setting_servo_max</entry>
+                <label>calibration_setting_text_2</label>
+                <entry>calibration_setting_servo_min</entry>
+                <separator>calibration_setting_separator_0</separator>
+                <label>calibration_setting_text_3</label>
+                <label>calibration_setting_text_4</label>
+                <combobox>calibration_setting_direction_X</combobox>
+                <label>calibration_setting_text_5</label>
+                <combobox>calibration_setting_direction_Y</combobox>
+                <separator>calibration_setting_separator_1</separator>
+                <label>calibration_setting_text_6</label>
+                <button>calibration_setting_load</button>
+            </frame>
+            
+            
+            <frame>calibration_visualizer_frame
+                <label>calibration_visualizer</label>
+            </frame>
+            
+        </frame>
+        
+        <frame>printimg_frame
+            
+            <frame>printimg_setting_frame
+                <label>printimg_setting_text_0</label>
+                <button>printimg_setting_selection</button>
+                <separator>printimg_setting_separator_0</separator>
+                <label>printimg_setting_text_1</label>
+                <scale>printimg_setting_quality</scale>
+                <checkbutton>printimg_setting_filling</checkbutton>
+                <separator>printimg_setting_separator_1</separator>
+                <button>printimg_setting_go</button>
+            </frame>
+            
+            <frame>printimg_visualizer_frame
+                <label>printimg_visualizer</label>
+            </frame>
+            
+        </frame>
+        
+        <frame>printhand_frame
+        
+            <frame>printhand_setting_frame
+                <label>printhand_setting_text_0</label>
+                <separator>printhand_setting_separator_0</separator>
+                <label>printhand_setting_text_1</label>
+                <label>printhand_setting_text_2</label>
+                <label>printhand_setting_text_3</label>
+                <separator>printhand_setting_separator_1</separator>
+                <button>printhand_setting_button_0</button>
+                <button>printhand_setting_button_1</button>
+            </frame>
+            
+            <frame>printhand_visualizer_frame
+                <canvas>printhand_visualizer_board</canvas>
+            </frame>
+            
+        </frame>
+        
+        <frame>printtext_frame
+            
+            <frame>printtext_setting_frame
+                <label>printtext_setting_text_0</label>
+                <text>printtext_setting_entry</text>
+                <separator>printtext_setting_separator_0</separator>
+                
+                <frame>printtext_setting_subframe
+                    <label>printtext_setting_text_1</label>
+                    <label>printtext_setting_text_4</label>
+                    <label>printtext_setting_text_2</label>
+                    <entry>printtext_setting_dimension</entry>
+                    <combobox>printtext_setting_align_o</combobox>
+                    <label>printtext_setting_text_3</label>
+                    <combobox>printtext_setting_character</combobox>
+                    <combobox>printtext_setting_align_v</combobox>
+                    <separator>printtext_setting_separator_1</separator>
+                </frame>
+                
+                <label>printtext_setting_text_5</label>
+                <scale>printtext_setting_rotation</scale>
+                <separator>printtext_setting_separator_2</separator>
+                <button>printtext_setting_button</button>
+            </frame>
+
+            <frame>printtext_visualizer_frame
+                <label>printtext_visualizer</label>
+            </frame>          
+            
+        </frame>
+        
+    </frame>
+    
+
+    <toplevel>sub_windows
+        
+        <label>sub_label</label>
+        <progressbar>sub_progressbar</progressbar>
+        <button>...</button>
+        
+    </toplevel>
+    
+</tk>

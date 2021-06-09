@@ -7,6 +7,7 @@
 .particle {
 	position: absolute;
  	border-radius: 50%;
+	background: var(--white);
 }
 
 @for $i from 1 through 100 {
@@ -24,6 +25,5 @@
 		width: $size;
 		animation-delay: -$i * .2s;
 		transform: translate3d((random(100) * 1vw), (random(100) * 1vh), (random(100) * 1px));
-		background: white;
 	}
 }

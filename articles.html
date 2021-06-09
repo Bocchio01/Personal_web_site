@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang='it'>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="author" content="Tommaso Bocchietti">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        @import url(./css/base.css);
+        @import url(./css/background.css);
+        @import url(./css/slogan.css);
+        @import url(./css/table.css);
+        @import url(./css/table_base.css);
+        @import url(./css/articles.css);
+    </style>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.5.0.js"></script>
+    <script type="text/javascript" src="/main_function.js"></script>
+    <title>Elenco articoli</title>
+</head>
+
+<body>
+    <div id="particle-container"></div>
+    <div id="header"></div>
+    <div class="slogan">What's Next?</div>
+
+    <!--Code here-->
+    <main>
+        <nav>
+            <label class="main_menu">
+                <input type="checkbox">
+                <p></p>
+            </label>
+        </nav>
+
+        <article>
+            <div class="main_content">
+                <div class="container">
+                    <a class="link_hidden">Scopri di più</a>
+                    <div>
+                        <h1 class="title"></h1>
+                        <div class="paragraph"></div>
+                    </div>
+                    <div class="separator"></div>
+                    <img>
+                </div>
+            </div>
+        </article>
+    </main>
+
+    <div id="footer"></div>
+</body>
+
+<script>
+    load_header_footer();
+    background();
+    load_articles_menu();
+    load_articles('data_articoli');
+</script>
+
+</html>

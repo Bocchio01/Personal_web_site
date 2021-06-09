@@ -1,47 +1,22 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed&display=swap');
-
-.separator{
-  min-width: var(--padding_articles); 
-  min-height: 10px;
-}
-
-.container a {
-  color: orange;
-  text-align: center;
-  position: absolute;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  z-index: 1;
-  font-size: calc(2.5*var(--description_font_size));
-  height: 100%;
-  width: 100%;
-  /*
-  margin-left: calc(-1*var(--padding_articles));
-  margin-top:  calc(-1*var(--padding_articles));
-  */
-  top: 0px;
-  right: 0px;
-  visibility: hidden;
-}
-
-.container:hover a {
-  visibility: visible;  
-}
-
 .container {
-  position: relative;
   display: flex;
-  width: 80%;
-  border: 1px solid #a2a2a2;
-  background-color: rgb(255, 255, 255);
-  -webkit-border-radius: 20px;
-  -moz-border-radius: 20px;
-  border-radius: 20px;
-  padding: var(--padding_articles);
-  margin-inline: auto;
-  margin-bottom: 50px;
+}
+
+.container .paragraph {
+  margin-top: 10px;
+}
+
+.container .separator {
+  min-width: var(--padding_articles);
+  min-height: 20px;
+}
+
+.container img {
+  display: flex;
+  margin: auto;
+  max-height: 300px;
   transition: all .2s ease-in-out;
+  max-width: -webkit-fill-available;
 }
 
 .container:hover {
@@ -49,50 +24,24 @@
   background-color: gray;
 }
 
-.title {
-  font-size: calc(2*var(--description_font_size));
+.container:hover .link_hidden {
+  visibility: visible;
 }
 
-.description {
-  font-size: var(--description_font_size);
-  font-family: 'Roboto Condensed', sans-serif;
-  text-align: justify;
-}
-
-h1 {
-  margin: 0px;
-}
-
-img {
-  display: flex;
-  margin: auto;
-  height: 300px;
-  transition: all .2s ease-in-out;
-  z-index: 5;
-}
-
-.container:hover img:hover {
+.container:hover img {
   transform: scale(1.1);
 }
 
-@media (max-width: 900px) {
-  :root{
-    --padding_articles: 40px !important;
-  }
-  .container a {
-    font-size: calc(2.2*var(--description_font_size));
-  }
-  .description {
-    font-size: calc(0.75*var(--description_font_size));
-  }
-  .title {
-    font-size: var(--description_font_size);
-    text-align: center;
-  }
-  img {
-    height: 200px !important;
-  }
+@media (max-width: 1030px) {
   .container {
     display: block;
+  }
+  .container a {
+    font-size: calc(1.5*var(--paragraph_font_size)) !important;
+    padding-inline: var(--padding_articles) !important;
+  }
+  .container .title {
+    font-size: var(--paragraph_font_size) !important;
+    text-align: center;
   }
 }
