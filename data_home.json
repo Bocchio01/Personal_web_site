@@ -1,7 +1,7 @@
 [
       {
             "tag": "",
-            "link": "about.html",
+            "link": "/Chi sono.html",
             "title": "Chi sono?",
             "description": [
                   "Mi chiamo Tommaso e sono uno studente di ingegneria meccanica al Politecnico di Milano (1°anno).",
@@ -16,7 +16,7 @@
       },
       {
             "tag": "",
-            "link": "articles.html",
+            "link": "/Articoli.html",
             "title": "Contenuti del sito",
             "description": [
                   "Suddivisi per aree tematiche, sul sito sono presenti 'articoli' riguardanti:<ul><li>Programmazione;</li><li>Meccanica;</li><li>Fisica;</li><li>Matematica;</li><li>Orienteering.</li></ul>I contenuti si divido poi ulteriormente in mie personali riflessioni, curiosità o approfondimenti, e inpagine dedicate alla descrizione di progetti e quindi di natura più strettamente descrittiva."
@@ -28,7 +28,7 @@
       },
       {
             "tag": "",
-            "link": "#",
+            "link": "contact.html",
             "title": "Qual é lo scopo?",
             "description": [
                   "Sentivo il bisogno di avere uno spazio completamente mio dove poter condividere con altri le mie idee e i miei progetti.",

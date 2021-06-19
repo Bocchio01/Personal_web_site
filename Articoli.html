@@ -6,12 +6,11 @@
     <meta name="author" content="Tommaso Bocchietti">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
-        @import url(./css/base.css);
-        @import url(./css/background.css);
-        @import url(./css/slogan.css);
-        @import url(./css/table.css);
-        @import url(./css/table_base.css);
-        @import url(./css/articles.css);
+        @import url(/css/base.css);
+        @import url(/css/background.css);
+        @import url(/css/table.css);
+        @import url(/css/table_base.css);
+        @import url(/css/articles.css);
     </style>
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.5.0.js"></script>
@@ -32,7 +31,11 @@
                 <p></p>
             </label>
         </nav>
-
+        <div class="select">
+            <p>
+                Seleziona una o più categorie
+            </p>
+        </div>
         <article>
             <div class="main_content">
                 <div class="container">
@@ -52,10 +55,13 @@
 </body>
 
 <script>
-    load_header_footer();
+    load('/_header.html', '#header');
+    load('/_footer.html', '#footer');
     background();
+
     load_articles_menu();
     load_articles('data_articoli');
+
 </script>
 
 </html>

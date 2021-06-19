@@ -40,8 +40,7 @@
     font-size: calc(1.5*var(--paragraph_font_size)) !important;
     padding-inline: var(--padding_articles) !important;
   }
-  .container .title {
-    font-size: var(--paragraph_font_size) !important;
-    text-align: center;
+  .container img {
+    max-height: 200px !important;
   }
 }

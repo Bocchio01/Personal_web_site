@@ -6,64 +6,64 @@
   <meta name="author" content="Tommaso Bocchietti">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
-    @import url(./css/base.css);
-    @import url(./css/background.css);
-    @import url(./css/slogan.css);
-    @import url(./css/table.css);
+    @import url(/css/base.css);
+    @import url(/css/background.css);
+    @import url(/css/viewer.css);
+    @import url(/css/table_base.css);
   </style>
   <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
   <script type="text/javascript" src="https://code.jquery.com/jquery-3.5.0.js"></script>
-  <script type="text/javascript" src="main_function.js"></script>
-  <title>Home</title>
+  <script type="text/javascript" src="/main_function.js"></script>
+  <title></title>
 </head>
 
-<body onload="riallinea('.main_content')">
+<body>
   <div id="header"></div>
   <div id="particle-container"></div>
 
-  <div id="slogan">What's Next?</div>
+  <div class="slogan">What's Next?</div>
 
   <main>
-    <!--
-    <nav>
-        <label class="main_menu">
-            <input type="checkbox">
-            <p></p>
-        </label>
-    </nav>-->
+    <div class="embedded_img">
+      <img>
+      <p></p>
+    </div>
 
-    <article>
-      <div class="main_content">
-        <div class="container">
-          <a>Scopri di più</a>
-          <div>
-            <h1 class="title"></h1>
-            <div class="description"></div>
-          </div>
-          <div class="separator"></div>
-          <img>
+    <div class="container">
+      <h1 class="title"></h1>
+      <img class="img_description" src="img/Inutilizzati/Chi_sono.jpg">
+    
+      <div>
+        <h2>Titolo paragrafo</h2>
+        <p>Contenuto paragrafo</p>
+    
+        <div class="img_description">
+          <img src="http://">
+          <p>Descrizione immagine</p>
         </div>
       </div>
-    </article>
+    
+    </div>
+    
   </main>
 
   <div id="footer"></div>
 
 </body>
-<script>
-  var xmlhttp = new XMLHttpRequest();
-  xmlhttp.onreadystatechange = function () {
-    if (this.readyState == 4 && this.status == 200) {
-      console.log(this.responseText)
-    }
-  };
-  xmlhttp.open("GET", "https://bocchio.altervista.org/scan.php", true);
-  xmlhttp.send();
 
-  //load_header_footer();
-  //background();
-  //load_articles('data_home');
-  //load_articles_menu();
+<script>
+  load('/_header.html', '#header');
+  load('/_footer.html', '#footer');
+  background();
+
+  embedded_img();
+  
+  var loc = window.location.pathname;
+  var dir = loc.substring(0, loc.lastIndexOf('/'));
+  var title = dir.substr(dir.lastIndexOf('/') + 1).replaceAll('%20', ' ');
+
+  add_attachments(dir, title);
+
 </script>
 
 </html>

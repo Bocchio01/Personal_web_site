@@ -1,26 +1,17 @@
 <?php
-$dir =  $_REQUEST["directory"];
-$dir = '.'.$dir;
+//$dir =  '.'.$_REQUEST["directory"].'/';
 
-$result = array();
+$dir =  '.'.$_POST["directory"];
 
-   $cdir = scandir($dir);
-   foreach ($cdir as $key => $value)
-   {
-      if (!in_array($value,array(".","..")))
-      {
-         if (is_dir($dir . DIRECTORY_SEPARATOR . $value))
-         {
-            $result[$value] = dirToArray($dir . DIRECTORY_SEPARATOR . $value);
-         }
-         else
-         {
-            $result[] = $value;
-         }
-      }
+// Open a directory, and read its contents
+if (is_dir($dir)){
+  if ($dh = opendir($dir)){
+    while (($file = readdir($dh)) !== false){
+       if ($file != "." && $file != "..")
+      $array[] = $file;
    }
-   header('Content-Type: application/json');
-  
-  echo(json_encode($result));
-
+   closedir($dh);
+}
+}
+echo (json_encode ($array));
 ?>

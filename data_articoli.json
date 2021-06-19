@@ -1,20 +1,20 @@
 [
       {
             "tag": "Programmazione",
-            "year": "2021",
+            "link": "/2021/Gorlu la stampante/",
             "title": "Gorlu la stampante",
             "description": [
                   "Un piccolo e simpatico plotter per stampare immagini o testo.",
                   "Grazie all'utilizzo di Arduino, Python e qualche componente di un vecchio PC, potrai costruirlo anche tu!"
             ],
             "img": [
-                  "Gorlu.png",
+                  "/2021/Gorlu la stampante/Gorlu.png",
                   "Gorlu la stampante"
             ]
       },
       {
             "tag": "Orienteering Programmazione",
-            "year": "2021",
+            "link": "/2021/A caccia di lanterne/",
             "title": "A caccia di lanterne",
             "description": [
                   "Da oggi tutti avranno la possibiltà di provare l'orienteering (e perdersi un pò nei boschi dietro casa.. o forse no..).",
@@ -27,7 +27,7 @@
       },
       {
             "tag": "Meccanica",
-            "year": "2021",
+            "link": "/2021/Il motore a scoppio/",
             "title": "Il motore a scoppio",
             "description": ["Un aereoplano mal messo.."],
             "img": [
