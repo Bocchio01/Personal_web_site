@@ -1,0 +1,24 @@
+<div class="paragraph" style="margin-bottom: 0px;">
+    <h2>Naviga nel sito</h2>
+    <p>Ecco alcune pagine che ti potrebbero interessare</p>
+    <div class="allegati_file">
+        <div class="file_box">
+            <a id="prev_page" class="link_hidden"></a>
+            <p id="prev_page"></p>
+        </div>
+        <div class="file_box">
+            <a id="link_forum" class="link_hidden"></a>
+            <p>Forum di discussione</p>
+        </div>
+        <div class="file_box">
+            <a id="next_page" class="link_hidden"></a>
+            <p id="next_page"></p>
+        </div>
+    </div>
+    <button class="back_up_button" onclick="document.documentElement.scrollTop = 0;" title="Go to top">Torna su</button>
+</div>
+<script>
+    $('#link_forum').ready(function () {
+        $('#link_forum').attr('href', '/main_pages/Forum/Forum.html?discussion=' + window.location.pathname)
+    })
+</script>

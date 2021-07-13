@@ -59,6 +59,7 @@ a {
 
 .header #header_name {
 	font-size: 1.1em;
+	padding-inline-end: 0px !important;
 }
 
 .header #header_name, .header .menu li a {
@@ -208,8 +209,8 @@ a {
 }
 
 @media (max-width: 570px) {
-	.slogan {
-		font-size: 35px;
+	.slogan, #slogan {
+		font-size: 35px !important;
 	}
 }
 
@@ -234,16 +235,9 @@ a {
 	}
 }
 
-@media (max-width: 570px) {
-	#slogan {
-		font-size: 35px;
-	}
-}
-
 
 /*--- footer ---*/
 #footer {
-	/*bottom: 0;*/
 	display: inline-flex;
 	margin-top: auto;
 	width: 100%;
@@ -338,3 +332,20 @@ a {
 	display: block;
 	width: 90%;
   }
+
+  .error_404 a {
+    text-decoration: underline !important; 
+    font-weight: bold !important;
+}
+
+.error_404:hover {
+    background-color: white !important;
+    transform: none !important;
+}
+
+@media (max-width: 1030px) {
+    .error_404 a {
+      font-size: calc(0.75*var(--paragraph_font_size)) !important;
+      padding-inline: 0 !important;
+    }
+}

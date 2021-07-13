@@ -3,51 +3,76 @@
 
 <head>
   <meta charset="UTF-8">
-  <meta name="author" content="Tommaso Bocchietti">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <style>
-    @import url(./css/base.css);
-    @import url(./css/background.css);
-    @import url(./css/table.css);
-    @import url(./css/table_base.css);
-  </style>
-  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
-  <script type="text/javascript" src="https://code.jquery.com/jquery-3.5.0.js"></script>
-  <script type="text/javascript" src="/main_function.js"></script>
-  <title>Home</title>
+  <script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.js"></script>
+  <script type="text/javascript" src="/js/main_function.js"></script>
+  <script>$.get("/html/head.html", function (data) { $("head").append(data); });</script>
 </head>
 
-<body onload="riallinea('.main_content')">
+<body>
   <div id="header"></div>
   <div id="particle-container"></div>
-
   <div id="slogan">What's Next?</div>
 
   <main>
-    <article>
-      <div class="main_content">
-        <div class="container">
-          <a class="link_hidden">Scopri di più</a>
-          <div>
-            <h1 class="title"></h1>
-            <div class="paragraph"></div>
-          </div>
-          <div class="separator"></div>
-          <img>
+    <div class="container">
+      <a class="link_hidden" href="/main_pages/Chi sono/">Scopri di più</a>
+      <div>
+        <h1 class="title_container">Chi sono?</h1>
+        <div class="text_container">
+          Mi chiamo Tommaso e sono uno studente di ingegneria meccanica al Politecnico di Milano (1°anno).<br>
+          Ho sempre voglia di creare cose nuove e molte volte mi ritrovo a guardare il cielo completamente perso nei miei pensieri.<br>
+          Parallelamente agli studi universitari, sviluppo nel tempo libero la passione per l'informatica e la programmazione.<br>
+          Credo fortemente nel contatto con la natura quale fonte di ispirazione, ed è forse anche questo uno dei motivi che mi ha spinto verso l'Orienteering..</div>
+      </div>
+      <div class="separator"></div>
+      <img class="img_container" src="/img/Chi_sono.svg" alt="Chi sono">
+    </div>
+
+    <div class="container" style="flex-direction: row-reverse;">
+      <a class="link_hidden" href="/main_pages/Articoli/">Scopri di più</a>
+      <div>
+        <h1 class="title_container">Contenuti del sito</h1>
+        <div class="text_container">
+          Suddivisi per aree tematiche, sul sito sono presenti "articoli" riguardanti:
+          <ul>
+            <li>Programmazione;</li>
+            <li>Meccanica;</li>
+            <li>Fisica;</li>
+            <li>Matematica;</li>
+            <li>Orienteering.</li>
+          </ul>
+          I contenuti si divido poi ulteriormente in mie personali riflessioni, curiosità o approfondimenti, e
+          inpagine dedicate alla descrizione di progetti e quindi di natura più strettamente descrittiva.
         </div>
       </div>
-    </article>
+      <div class="separator"></div>
+      <img class="img_container" src="/img/Contenuti.svg" alt="Contenuti del sito">
+    </div>
+
+    <div class="container">
+      <a class="link_hidden" href="/main_pages/Forum/">Scopri di più</a>
+      <div>
+        <h1 class="title_container">Qual é lo scopo?</h1>
+        <div class="text_container">Sentivo il bisogno di avere uno spazio completamente mio dove poter condividere con altri le mie idee e i miei progetti.<br>
+          Lo scopo è quindi quello di riuscire a creare una piccola community online di persone aventi interessi o passioni in comune, così da poter sviluppare nuovi progetti insieme.<br>
+          Credo infatti fortemente nella crescita di se stessi tramite il confronto con altri e spero che questo sito possa essere lo strumento giusto per raggiungere quell'obbiettivo.
+        </div>
+      </div>
+      <div class="separator"></div>
+      <img class="img_container" src="/img/Scopo.svg" alt="Qual é lo scopo?">
+    </div>
   </main>
 
   <div id="footer"></div>
 
 </body>
-<script>
-  load('/_header.html', '#header');
-  load('/_footer.html', '#footer');
-  background();
 
-  load_articles('data_home');
+<script>
+  main_element();
+  $(window).on('load', function () {
+    $('title').text('Bocchio | Home');
+    $('.container').odd().css('flex-direction', 'row-reverse');
+  });
 </script>
 
 </html>

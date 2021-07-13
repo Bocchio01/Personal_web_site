@@ -3,14 +3,14 @@
 
 <head>
       <meta charset="UTF-8">
-      <meta name="author" content="Tommaso Bocchietti">
-      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <meta http-equiv="refresh" content="3; URL=home.html">
+      <script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.js"></script>
+      <script type="text/javascript" src="/js/main_function.js"></script>
+      <script>$.get("/html/head.html", function (data) {$("head").append(data);});</script>
+      <meta http-equiv="refresh" content="3; URL=Home.html">
       <style>
-            @import url(./css/index.css);
-            @import url(./css/base.css);
+            @import url(/css/index.css);
       </style>
-      <title>Loading...</title>
+      <script>$('title').text('Bocchio | Loading...');</script>
 </head>
 
 <body>

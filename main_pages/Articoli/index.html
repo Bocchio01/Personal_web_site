@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang='it'>
+
+<head>
+    <meta charset="UTF-8">
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script type="text/javascript" src="/js/main_function.js"></script>
+    <script>$.get("/html/head.html", function (data) {$("head").append(data);});</script>
+</head>
+
+<body>
+    <div id="particle-container"></div>
+    <div id="header"></div>
+    <div class="slogan">What's Next?</div>
+
+    <nav class="sub_menu_wrapper"></nav>
+
+    <main class="list_container">
+        <div class="container">
+            <a class="link_hidden">Scopri di più</a>
+            <div>
+                <h1 class="title_container"></h1>
+                <div class="text_container"></div>
+            </div>
+            <img class="img_container">
+        </div>
+    </main>
+
+    <div id="footer"></div>
+</body>
+
+<script>
+    main_element();
+    $(window).on('load', function () {
+        load_articles_menu();
+        load_articles('/js/data_articoli.json');
+        $('title').text('Bocchio | Articoli');
+    });
+</script>
+
+</html>

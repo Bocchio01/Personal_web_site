@@ -2,19 +2,10 @@
 <html lang='it'>
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="author" content="Tommaso Bocchietti">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <style>
-    @import url(/css/base.css);
-    @import url(/css/background.css);
-    @import url(/css/viewer.css);
-    @import url(/css/table_base.css);
-  </style>
-  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
-  <script type="text/javascript" src="https://code.jquery.com/jquery-3.5.0.js"></script>
-  <script type="text/javascript" src="/main_function.js"></script>
-  <title></title>
+    <meta charset="UTF-8">
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script type="text/javascript" src="/js/main_function.js"></script>
+    <script>$.get("/html/head.html", function (data) {$("head").append(data);});</script>
 </head>
 
 <body>
@@ -24,9 +15,9 @@
   <div class="slogan">What's Next?</div>
 
   <main>
-    <div class="container">
+    <div class="article">
         <h1 class="title">Gorlu la stampante</h1>
-        <img class="img_description" src="Gorlu.png">
+        <img class="media_block" src="Gorlu.png">
     
         <div class="paragraph">
             <h2>L'idea iniziale</h2>
@@ -45,7 +36,7 @@
             <p>
                 Per semplicità, ho deciso di basare l'intero progetto su <b>Python per quanto riguarda l'elaborazione delle immagini</b>, e sul <b>C++ per quanto riguarda il codice di Arduino</b>.
             </p>
-            <div class="img_description">
+            <div class="media_block">
                 <img src="https://i0.wp.com/www.insidevcode.eu/wp-content/uploads/2015/05/python-logo.png?ssl=1">
                 <p>Logo di Python 3.9</p>
             </div>
@@ -65,18 +56,18 @@
             <p> 
                 L'algoritmo principale, ovvero quello che si occupa della stampa di immagini digitali, è sostanzialmente un algoritmo di ricerca e ordinamento.<br> Data un'immagine in input, il programma esegue una ricerca dei pixel che compongono i tratti principali dell'immagine utilizzando la <b>funzione <a target="_blank" href="https://docs.opencv.org/3.4/da/d22/tutorial_py_canny.html">Canny()</a> presente in OpenCV</b>.
             </p>
-            <div class="img_description">
+            <div class="media_block">
                 <img src="https://www.mathworks.com/matlabcentral/mlc-downloads/downloads/submissions/51124/versions/1/screenshot.jpg">
                 <p>Un esempio di immagine elaborata con la funzione Canny()</p>
             </div>
             <p>
                 Dopo aver mappato i dati all'interno di una matrice bidimensionale, ne viene eseguita la scansione con la logica di andare a stampare non singoli punti (rischiando così di avere problemi con l'inchiostro della penna), ma linee continue. <b>Preso un elemento A, l'algoritmo ne analizza i pixel in posizioni limitrofe in cerca di un elemento B da stampare. In caso di successo ne invia le coordinate ad Arduino, altrimenti allarga il campo di ricerca sempre centranto in A fino a che non viene identificato un elemento B</b>. Il programma poi cicla prendendo come punto di partenza le coordinate dell'elemento B appena individuato, e continua in maniera analoga fino a che tutta la matrice non è stata scansionata.
             </p>
-            <div class="img_description">
+            <div class="media_block">
                 <img src="Algoritmo_di_ricerca_1.png">
                 <p>Simulazione grafica dell'algoritmo di ricerca</p>
             </div>
-            <div class="img_description">
+            <div class="media_block">
                 <img src="Algoritmo_di_ricerca_2.png">
                 <p>Uno screen dell'algoritmo di ricerca</p>
             </div>
@@ -96,7 +87,7 @@
             <p>
                 In particolare, i due carrelli hanno come base le componenti di vecchi lettori di DVD. Quest'ultimi presentano al loro interno, un motorino primario che si occupa della rotazione ad alta velocità del DVD, e un motore secondario incaricato dello scorrimento del lettore ottico. Questo motore passo-passo è proprio colui che una volta modificato sostituendone l'unità ottica con una base in legno, permette alla stampante di muovere il foglio e la penna lungo i due assi X e Y.
             </p>
-            <div class="img_description">
+            <div class="media_block">
                 <video controls>
                     <source src="Movimento_carrelli.mp4" type="video/mp4">
                     Your browser does not support the video tag.
@@ -106,7 +97,7 @@
             <p>
                 Il meccanismo legato invece al movimento della penna lungo l'asse Z è invece leggermente più fine e delicato. Esso si compone di un servo-motore legato con un filo inestensibile alla mina della penna. Quando la penna deve essere alzata, il servo compie una rotazione di qualche grado, mandando in tensione il filo e tirando così verso l'alto la mina. Per ritornare con la mina sul foglio, il servo rilascia la tensione lungo il filo, e un elastico spinge verso il basso la mina.
             </p>
-            <div class="img_description">
+            <div class="media_block">
                 <video controls>
                     <source src="Movimento_penna.mp4" type="video/mp4">
                     Your browser does not support the video tag.
@@ -121,7 +112,7 @@
         <div class="paragraph">
             <h2>Gorlu la stampante!</h2>
             <p>Ecco qualche video del progetto finito.</p>
-            <div class="img_description">
+            <div class="media_block">
                 <iframe width="560" height="315" src="https://www.youtube.com/embed/qBS6WiSzQmI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                 <p>Stampa di Pikachu</p>
             </div>
@@ -143,7 +134,7 @@
                 <li>Una tavola di legno;</li>
                 <li>Viti e bulloni</li>
             </ul>
-            <div class="img_description">
+            <div class="media_block">
                 <img src="Materiali.png">
                 <p>Componenti principali</p>
             </div>
@@ -158,7 +149,7 @@
                 Passando ora alla parte software, l'intero codice necessario per il corretto funzionamento è reperibile alla <a target="_blank" href="https://github.com/Bocchio01/Arduino_CNC_plotter">pagina GitHub del progetto</a>.<br>
                 Per poterlo scaricare basterà <b>cliccare sul tasto verde "Code" e successivamente su "download ZIP"</b>. All'interno della cartella, troverete questi file:
             </p>
-            <div class="img_description">
+            <div class="media_block">
                 <img src="Cartella_GitHub.png">
                 <p>Files presenti nella repository del progetto</p>
             </div>
@@ -180,7 +171,6 @@
         <div class="paragraph">
             <h2>Allegati</h2>
             <p>Di seguito trovate vari link ai materiali e alcuni files utili per realizzare il progetto.</p>
-            <br>
             <div class="allegati_link">
                 <label><a target="_blank" href="https://www.amazon.it/Elegoo-ATmega328P-ATMEGA16U2-Compatibile-Microcontrollore/dp/B01MRJR8UF/ref=sr_1_8?__mk_it_IT=%C3%85M%C3%85%C5%BD%C3%95%C3%91&dchild=1&keywords=arduino&qid=1623170794&s=electronics&sr=1-8">Scheda Arduino;</a></label></label>
                 <label><a target="_blank" href="https://www.amazon.it/Pixnor-L293D-Shield-Arduino-Duemilanove/dp/B0113YH5JA/ref=sr_1_1?__mk_it_IT=%C3%85M%C3%85%C5%BD%C3%95%C3%91&dchild=1&keywords=PIXNOR+L293D+Drive+Motor+Shield+per+Arduino+Duemilanove+Uno+Mega+R3+AVR+AT&qid=1623170749&s=electronics&sr=1-1">Scheda L293D;</a></label></label>
@@ -205,16 +195,13 @@
 </body>
 
 <script>
-  load('/_header.html', '#header');
-  load('/_footer.html', '#footer');
-  background();
-
-  embedded_img();
-
-  $('title').text($('h1.title').text());
-
-  add_attachments(window.location.pathname + 'Allegati');
-
+        main_element();
+        $(window).on('load', function () {
+            embedded_img();
+            $('title').text('Bocchio | ' + $('h1.title').text());
+            add_attachments(window.location.pathname + 'Allegati/');
+            add_link_articles($('h1.title').text())
+        });
 </script>
 
 </html>

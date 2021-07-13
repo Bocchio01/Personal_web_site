@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang='it'>
+
+<head>
+  <meta charset="UTF-8">
+  <script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.js"></script>
+  <script type="text/javascript" src="/js/main_function.js"></script>
+  <script>$.get("/html/head.html", function (data) {$("head").append(data);});</script>
+</head>
+
+<body>
+  <div id="header"></div>
+  <div id="particle-container"></div>
+
+  <div class="slogan">What's Next?</div>
+
+  <main>
+    <div class="article">
+      <h1 class="title">Chi sono?</h1>
+      <img class="media_block" src="Maturita.png">
+
+      <div class="paragraph">
+        <h2>Ciao!</h2>
+        <p>Mi chiamo Tommaso, ho 20 anni e abito a Como, Italia.</p>
+          <p>Fin da piccolo ho avuto una certa propensione verso tutto ciò che avesse all'interno ingranaggi e in generale meccanismi complessi che ne governavano il movimento. In particolare, sono sempre stato estremamente affascinato da macchine pesanti da cantiere come gru, camion ed escavatori.</p>
+          <p><b>L'idea che l'uomo sia in grado di aumentare la propria forza lavoro costruendosi da solo il mezzo per riuscirci è probabilmente quello che da sempre più mi attira.</b> Per questo motivo attualmente studio ingegneria meccanica presso il Politecnico di Milano e spero in futuro di poter contribuire anche io con le mie conoscenze e la mia passione allo sviluppo e al miglioramento tecnologico nei settori della meccanica "pesante".</p>
+
+        <div class="media_block">
+          <img src="Ruspetta_4.png">
+          <p>L'ho detto che gli escavatori mi attirano?</p>
+        </div>
+      </div>
+
+      <div class="paragraph">
+        <h2>Le mie passioni</h2>
+        <p>Parallelamente alla passione per la meccanica, negli ultimi anni mi sono avvicinato anche al <b>mondo della programmazione e della robotica</b>. Avendo frequentato infatti un liceo ad indirizzo scienze applicate, ho ricevuto a scuola le basi della programmazione in C e i concetti base dell'informatica.</p>
+        <p>Partendo allora dalla scrittura di programmi più complessi e maggiormente strutturati sono arrivato ad avere una conoscenza di base (e sottolineo di base) dei <b>linguaggi principali per lo sviluppo di programmi, applicazioni web e analisi dati</b>.</p>
+        <p>In particolare, da ormai un paio d'anni ho orientato la mia programmazione verso dei veri e propri sistemi in grado di fondere a pieno gli interessi meccanici e quelli informatici. Da quando infatti mi è stato regalato Arduino, molto del mio tempo lo dedico a creare progetti che includano il suo utilizzo.</p>
+        <div class="media_block">
+          <img src="https://www.robotstore.it/open2b/var/products/2/12/0-07c33bf0-500-Arduino-UNO-R3-con-microcontrollore-ATmega328.jpg">
+          <p>La scheda programmabile Arduino Uno</p>
+        </div>
+        <p>Questa semplice scheda offre infatti la <b>possibilità di creare delle vere e proprie macchine o robot in grado, tramite sensori, di interagire con l'ambiente</b>. Il codice e la scheda permettono quindi di trasformare una struttura inanimata, in una macchina che alle volte può sembrare anche in grado di pensare da sola.</p>
+      </div>
+
+      <div class="paragraph">
+        <h2>Il contatto con l'ambiente</h2>
+        <p>Può sembrare controverso viste le mie passioni ed interessi, ma un aspetto importante che per me non deve mai mancare, è il contatto con la natura. <b>Credo infatti fortemente nel contatto con la natura quale fonte di ispirazione per i miei progetti e non solo</b>: molte volte mi ritrovo a guardare il cielo completamente perso nei miei pensieri o ancora più spesso una corsa nei boschi mi aiuta a schiarire le idee e a rasserenarmi.</p>
+        <p>Probabilmente per questo motivo, da ormai 5 anni, <b>pratico “Orienteering” o “Corsa d’orientamento”</b>.</p>
+        <div class="media_block">
+          <img src="IMG_3798 (3).JPG">
+          <p>Io impegnato durante una gara</p>
+        </div>
+        <p>Per chi non lo sapesse, questo sport consiste nella ricerca con l'uso di mappa e bussola di alcuni punti di controllo immersi completamente nel bel mezzo di boschi e foreste. La libertà di scelta del percorso da seguire, unita alla componente tecnica, essenziale per l'orientamento con la bussola e cartina, nonché la componente fisica, necessaria ai fini di gare molto lunghe e non, rende questo sport uno dei più completi e dei più affascinanti dal mio punto di vista. Peccato sia poco conosciuto se non a livello scolastico...</p>
+      </div>
+    </div>
+
+  </main>
+
+  <div id="footer"></div>
+
+</body>
+
+<script>
+  main_element();
+  $(window).on('load', function () {
+    embedded_img();
+    $('title').text('Bocchio | ' + $('h1.title').text());
+  });
+</script>
+
+</html>

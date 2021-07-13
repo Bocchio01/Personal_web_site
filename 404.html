@@ -3,47 +3,36 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="author" content="Tommaso Bocchietti">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <style>
-        @import url(./css/base.css);
-        @import url(./css/background.css);
-        @import url(./css/table.css);
-        @import url(./css/table_base.css);
-        .container:hover {
-            background-color: white;
-            transform: none;
-        }
-    </style>
-    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
-    <script type="text/javascript" src="https://code.jquery.com/jquery-3.5.0.js"></script>
-    <script type="text/javascript" src="/main_function.js"></script>
-    <title>Errore 404 (not found)</title>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script type="text/javascript" src="/js/main_function.js"></script>
+    <script>$.get("/html/head.html", function (data) {$("head").append(data);});</script>
 </head>
 
 <body>
     <div id="particle-container"></div>
     <div id="header"></div>
     <div class="slogan">ERRORE 404</div>
-    <div class="container">
+    <div class="container error_404">
         <div>
-            <h1 class="title">Cosa è successo?</h1>
-            <div class="paragraph">
+            <h1 class="title_container">Cosa è successo?</h1>
+            <div class="text_container">
                 <p>
                     Pensiamo che qualcosa sia andato storto.<br>
-                    Se pensi possa essere un problema del sito, faccelo sapere tramite e-mail <a href="/contact.html" style="text-decoration: underline; font-weight: bold;">cliccando qui</a>.
+                    Se pensi possa essere un problema del sito, faccelo sapere tramite e-mail <a href="/contact.html">cliccando qui</a>.
                 </p>
             </div>
         </div>
         <div class="separator"></div>
-        <img src="/img/Icons/Undefined.png">
+        <img class="img_container" src="/img/Icons/Undefined.png">
     </div>
     <div id="footer"></div>
 </body>
 
 <script>
-    load_header_footer();
-    background();
+    main_element();
+    $(window).on('load', function () {
+      $('title').text('Bocchio | Errore 404 (not found)');
+    });
 </script>
 
 </html>

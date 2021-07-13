@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang='it'>
+
+<head>
+    <meta charset="UTF-8">
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script type="text/javascript" src="/js/main_function.js"></script>
+    <script>$.get("/html/head.html", function (data) { $("head").append(data); });</script>
+    <style>
+        @import url(/css/forum.css);
+    </style>
+</head>
+
+<body>
+    <div id="header"></div>
+    <div id="particle-container"></div>
+
+    <div class="slogan">What's Next?</div>
+
+    <main class="forum_container">
+        <div class="message_box">
+            <div class="info_box">
+                <p class="author"></p>
+                <img class="img_author">
+            </div>
+            <div class="content_box">
+                <p class="date"></p>
+                <p class="message"></p>
+            </div>
+        </div>
+    </main>
+    <div class="message_box message">
+        <form method="post">
+            <label>Autore</label>
+            <input id="author" placeholder="Anonimus" type="text" name="author">
+            <label>Messaggio</label>
+            <textarea id="message" rows="10" name="message" required></textarea>
+            <input class="send_button" type="submit" name="submit" value="Invia">
+        </form>
+    </div>
+
+    <div id="footer"></div>
+
+</body>
+
+<script>
+    main_element();
+    $(window).on('load', function () {
+        //embedded_img();
+        $('title').text('Bocchio | Forum | Gorlu la stampante');
+        //add_attachments(window.location.pathname + 'Allegati/');
+        //add_link_articles($('h1.title').text());
+        $.getJSON(getUrlParameter('discussion') + 'chat.json', function (data) {
+
+            $.each(data, function (i, el) {
+                var ele = $("div.message_box:first").clone();
+
+                ele.find(".author").text(el.author);
+                ele.find(".message").html(el.message);
+                ele.find(".date").text(el.date);
+                ele.find(".img_author").attr("src", el.img_author);
+
+                $(".forum_container").append(ele);
+            })
+            $("div.message_box:first").remove();
+        })
+    }
+    );
+
+    $(function () {
+
+        $('form').on('submit', function (e) {
+            if ($('form #author').val().toUpperCase().indexOf('ADMIN') >= 0 && !getUrlParameter('privilege')) {
+                alert('Non puoi scrivere nel forum come admin!')
+                return
+            }
+            input = $('form').serialize().replaceAll('%0D%0A', '<br>')
+            var file = '&file=' + getUrlParameter('discussion') + 'chat.json';
+            e.preventDefault();
+
+            $.ajax({
+                type: 'POST',
+                url: '/php/load_forum.php',
+                dataType: "json",
+                data: input + file,
+                success: function (response) {
+                    var ele = $("div.message_box:first").clone();
+                    ele.find(".author").text(response.author);
+                    ele.find(".message").html(response.message);
+                    ele.find(".date").text(response.date);
+                    ele.find(".img_author").attr("src", response.img_author);
+                    ele.find('.content_box').append($('<div></div>').addClass('to_modify').append($('<button>Modifica</button>').attr('id', '1')).append($('<button>Elimina</button>').attr('id', '2')))
+                    $(".forum_container").append(ele);
+                    document.getElementById("1").addEventListener("click", modify);
+                    document.getElementById("2").addEventListener("click", delete_mess);
+                    $('form #author').val('');
+                    $('form #message').val('');
+                }
+            }).fail(function () {
+                alert("C'è stato un errore durante l'invio del messaggio. Riprova :)");
+            })
+        })
+    })
+
+
+
+    function modify() {
+        $('form #author').val($(".author").last().text())
+        $('form #message').val($(".content_box").last().children('.message').html())
+        delete_mess()
+    }
+
+    function delete_mess() {
+        $.ajax({
+            type: 'POST',
+            url: '/php/delete_mess.php',
+            data: 'file=' + getUrlParameter('discussion') + 'chat.json',
+            success: function (response) {
+                $('.info_box').last().parent().remove()
+            }
+        })
+    }
+
+</script>
+
+</html>
