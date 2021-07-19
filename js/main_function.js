@@ -28,8 +28,8 @@ function load_articles_menu() {
     $('nav').append($('<div></div>').addClass("select_argument").append($('<p></p>').text('Seleziona un argomento.')))
 }
 
-function load_articles(type) {
-    $.getJSON('/js/data_articoli.json', function (data) {
+function load_articles(type, source) {
+    $.getJSON(source, function (data) {
 
         $.each(data, function (i, el) {
             var ele = $("div.container:first").clone();

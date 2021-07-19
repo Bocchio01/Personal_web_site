@@ -5,8 +5,14 @@
       <meta charset="UTF-8">
       <script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.js"></script>
       <script type="text/javascript" src="/js/main_function.js"></script>
-      <script>$.get("/html/head.html", function (data) {$("head").append(data);});</script>
-      <meta http-equiv="refresh" content="3; URL=Home.html">
+      <script>$.get("/html/head.html", function (data) { $("head").append(data); });</script>
+      <meta id="refresh" http-equiv="refresh">
+      <script>
+            const subdomain = window.location.hostname.split(".")[0]
+            if (subdomain == "iot") { $('meta#refresh').attr('content', '3; URL=/SubDomain/IoT/index.html') }
+            else if (subdomain == "ori") { $('meta#refresh').attr('content', '3; URL=/SubDomain/Orienteering/index.html') }
+            else { $('meta#refresh').attr('content', '3; URL=Home.html') }
+      </script>
       <style>
             @import url(/css/index.css);
       </style>
