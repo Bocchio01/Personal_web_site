@@ -20,23 +20,13 @@
             "img": "https://www.malpensa24.it/wp-content/uploads/2019/02/O_772304777d.jpg"
       },
       {
-            "tag": "Meccanica",
+            "tag": "Programmazione Matematica",
             "link": "/2021",
-            "title": "Un vecchio amico..",
+            "title": "Around the globe",
             "description": [
-                  "Un piccolo e simpatico plotter per stampare immagini o testo.",
-                  "Grazie all'utilizzo di Arduino, Python e qualche componente di un vecchio PC, potrai costruirlo anche tu!"
+                  "Uno script per il calcolo dell'azimut tra due punti della superfice terrestre.",
+                  "Se vuoi sapere in che direzione girarti per guardare verso Tokyo o NewYork o qualunque altra città del mondo, questo è lo strumento che fa per te!"
             ],
-            "img": "https://images-na.ssl-images-amazon.com/images/I/511VYblXQXL._AC_SX425_.jpg"
-      },
-      {
-            "tag": "Matematica",
-            "link": "/2021",
-            "title": "Serie di Fourier!",
-            "description": [
-                  "Un piccolo e simpatico plotter per stampare immagini o testo.",
-                  "Grazie all'utilizzo di Arduino, Python e qualche componente di un vecchio PC, potrai costruirlo anche tu!"
-            ],
-            "img": "https://www.extrabyte.info/00x_gibbs_fourier.gif"
+            "img": "https://img.freepik.com/free-vector/globalization-concept-blue-lines-around-blue-globe_104327-79.jpg?size=626&ext=jpg&ga=GA1.2.1656752755.1627689600"
       }
 ]

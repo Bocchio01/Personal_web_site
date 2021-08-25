@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+	<meta charset="UTF-8">
+	<script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.js"></script>
+	<script>$.get("/html/head.html", function (data) { $("head").append(data); $('style:last').remove(); $('title').text('Bocchio | Arduino_Web_Car'); });</script>
+
+	<script type="text/javascript" src="Web_client.js"></script>
+	<script type="text/javascript" src="../../.lib/JoyStick-lib/joy.min.js"></script>
+
+	<style>
+		@import url(../../css/IoT_base.css);
+		@import url(style.css);
+	</style>
+</head>
+
+<body>
+	<div class="hide_bar" style="position: absolute;">
+		<ul class="menu">
+		</ul>
+	</div>
+
+	<div class="container_up">
+
+		<div id='Location_box' style="display: none;">
+			<h1>Location map</h1>
+			<!--<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d89029.0489216526!2d8.987579664202512!3d45.78806669129675!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47869c481027ed63%3A0xb99b96af785ff524!2s22100%20Como%20CO!5e0!3m2!1sit!2sit!4v1626620438635!5m2!1sit!2sit" width="auto" height="auto" style="border:0;" allowfullscreen="" loading="lazy"></iframe>-->
+		</div>
+
+		<div id='JoyStick_box'>
+			<h1>Joystick</h1>
+			<div id="joy_link"></div>
+			<div id="frequency_box">
+				<span>Minima frequenza</span>
+				<input id="frequency" type="range" value="150" min="0" max="300">
+				<span>Massima frequenza</span>
+			</div>
+			<button id="reboot_ard" onclick="reboot_ard()">Esegui il reboot di arduino</button>
+		</div>
+
+		<div id='Video_box' style="display: none;">
+			<h1>Video streaming</h1>
+		</div>
+
+	</div>
+
+	<div class="hide_bar" style="margin-top: auto;">
+		<ul class="menu second">
+			<li id='stage_1'>Connettiti al Server</li>
+			<li id='stage_2' style="display: none;">Connessione in corso...</li>
+			<li id='stage_3' style="display: none;"></li>
+		</ul>
+	</div>
+
+	<div class="container_down"></div>
+</body>
+<script>
+
+	$(window).on('load', function () {
+		var tm
+		var joy = new JoyStick('joy_link', { "title": "joystick_canvas", "internalFillColor": "orange", "internalStrokeColor": "orange", "externalStrokeColor": "black" });
+		var joy_canvas = document.getElementById('joystick_canvas')
+		$(".container_up > div").each((index, elem) => {
+
+			$('.menu:first').append($('<li>' + elem.id + '</li>').click(() => $('#' + elem.id).toggle()))
+
+		});
+		$('#stage_3').click(function () { $('.container_down').toggle() });
+
+		$('.container_up').children().css('margin-top', $('.hide_bar:first').outerHeight() + 'px')
+
+		document.getElementById('stage_1').addEventListener('click', init);
+
+		joy_canvas.addEventListener('mouseenter', () => tm = setInterval(function () { send_cord(joy, [10, -255], [170, 255]); }, 350 - document.getElementById("frequency").value));
+		joy_canvas.addEventListener('mouseleave', () => clearInterval(tm));
+		joy_canvas.addEventListener('touchstart', () => { tm = setInterval(function () { send_cord(joy, [10, -255], [170, 255]); }, 350 - document.getElementById("frequency").value); $('html, body').toggleClass('block') });
+		joy_canvas.addEventListener('touchend', () => { clearInterval(tm); $('html, body').toggleClass('block') });
+
+	});
+</script>
+
+</html>

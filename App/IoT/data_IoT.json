@@ -1,0 +1,14 @@
+[
+    {
+          "link": ".",
+          "title": "Web_car",
+          "description": ["Portale di accesso al Socket di controllo per il progetto Arduino_web_car."],
+          "img": "https://www.nitrotek.it/pub/media/catalog/product/cache/faaba950a81e9804dca438fbf20a3ec1/7/0/70kmh-rc-car.jpg"
+    },
+    {
+        "link": ".",
+        "title": "Around_the_globe",
+        "description": ["Script per il calcolo di direzioni e distanze tra luoghi geografici del mondo."],
+        "img": "https://img.freepik.com/free-vector/globalization-concept-blue-lines-around-blue-globe_104327-79.jpg"
+  }
+]

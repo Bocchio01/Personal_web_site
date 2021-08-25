@@ -1,0 +1,70 @@
+* {
+    box-sizing: border-box;
+    margin: 0px;
+}
+
+:root {
+    --black: black;
+    --white: white;
+    --orange: orange;
+    --gray: gray;
+    --hide_bar_height: 50px;
+    --max_font_size: xx-large;
+    --min_font_size: 17px;
+    --border_radius: 15px;
+    --grid_space: 15px;
+}
+
+body, html {
+    position: relative;
+    min-height: 100vh;
+    color: var(--black);
+}
+
+body {
+    position: relative;
+    font-family: monospace;
+    line-height: 1.6;
+    display: flex;
+    flex-direction: column;
+}
+
+.hide_bar {
+    cursor: pointer;
+    z-index: 5;
+    border: 2px solid var(--black);
+    border-radius: var(--border_radius);
+    background-color: var(--orange);
+    position: relative;
+    top: 0px;
+    width: 100%;
+    height: var(--hide_bar_height);
+}
+
+.hide_bar .menu {
+    padding: 0px;
+    list-style-type: none;
+    display: inline-flex;
+    text-align: center;
+    flex-direction: row;
+    justify-content: space-around;
+    width: 100%;
+    height: 100%;
+}
+
+.hide_bar .menu li {
+    text-decoration: underline;
+    align-items: center;
+    font-size: var(--max_font_size);
+    display: flex;
+    justify-content: space-around;
+    width: 33%;
+}
+
+.hide_bar .second li {
+    width: 100%;
+}
+
+#g_marker {
+    content: "\e062";
+}

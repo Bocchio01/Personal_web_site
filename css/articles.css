@@ -63,11 +63,11 @@
 
 .article .allegati_file .file_box img {
   max-height: 50px !important;
+  padding-right: 10px;
 }
 
 .article .allegati_file .file_box p {
   align-self: center;
-  padding-left: 10px;
 }
 
 .article a:hover {

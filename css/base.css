@@ -1,6 +1,6 @@
 /*--- global ---*/
-@import url('https://fonts.googleapis.com/css2?family=Bungee+Shade&family=Permanent+Marker&display=swap');
 
+@import url('https://fonts.googleapis.com/css2?family=Bungee+Shade&family=Permanent+Marker&display=swap');
 * {
 	box-sizing: border-box;
 	margin: 0px;
@@ -37,9 +37,25 @@ a {
 	text-decoration: none;
 }
 
-
 /*--- header ---*/
-.header {
+
+.dropdown:hover p {
+	color: var(--orange);
+}
+
+.dropdown:hover .dropdown-content {
+	display: flex !important;
+	flex-direction: column;
+}
+
+.dropdown-content {
+	display: none;
+	position: fixed !important;
+	right: 0px;
+	width: auto !important;
+}
+
+.header, .dropdown-content {
 	position: relative;
 	width: 100%;
 	font-size: var(--header_font_size);
@@ -170,6 +186,9 @@ a {
 	.header .menu li a {
 		height: calc(0.6*var(--header_height));
 	}
+	.dropdown-content {
+		width: 100% !important;
+	}
 }
 
 @media (max-width: 570px) {
@@ -188,8 +207,8 @@ a {
 	}
 }
 
-
 /*Slogan Other pages*/
+
 .slogan {
 	margin: 27px auto 0px auto;
 	width: 100%;
@@ -214,8 +233,8 @@ a {
 	}
 }
 
-
 /*Slogan Home*/
+
 #slogan {
 	padding-bottom: 50px;
 	width: 100%;
@@ -235,8 +254,8 @@ a {
 	}
 }
 
-
 /*--- footer ---*/
+
 #footer {
 	display: inline-flex;
 	margin-top: auto;
@@ -278,8 +297,9 @@ a {
 #footer .social a:nth-child(2) {
 	background: url('/img/Telegram.png') no-repeat;
 	background-size: contain;
-	
-}#footer .social a:nth-child(3) {
+}
+
+#footer .social a:nth-child(3) {
 	background: url('/img/Instagram.png') no-repeat;
 	background-size: contain;
 }
@@ -290,7 +310,8 @@ a {
 
 #footer #copyright {
 	color: var(--gray);
-	border-top: 1px solid var(--black);;
+	border-top: 1px solid var(--black);
+	;
 }
 
 #footer div a:hover {
@@ -308,6 +329,7 @@ a {
 }
 
 /*--- embedded_img ---*/
+
 .embedded_img {
 	display: none;
 	position: fixed;
@@ -324,28 +346,28 @@ a {
 	font-size: var(--paragraph_font_size);
 	font-family: 'Roboto Condensed', sans-serif;
 	text-align: center;
-  }
-  
-  .embedded_img img {
+}
+
+.embedded_img img {
 	z-index: 7;
 	margin: auto;
 	display: block;
 	width: 90%;
-  }
+}
 
-  .error_404 a {
-    text-decoration: underline !important; 
-    font-weight: bold !important;
+.error_404 a {
+	text-decoration: underline !important;
+	font-weight: bold !important;
 }
 
 .error_404:hover {
-    background-color: white !important;
-    transform: none !important;
+	background-color: white !important;
+	transform: none !important;
 }
 
 @media (max-width: 1030px) {
-    .error_404 a {
-      font-size: calc(0.75*var(--paragraph_font_size)) !important;
-      padding-inline: 0 !important;
-    }
+	.error_404 a {
+		font-size: calc(0.75*var(--paragraph_font_size)) !important;
+		padding-inline: 0 !important;
+	}
 }

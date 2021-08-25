@@ -2,37 +2,37 @@
 <html lang='it'>
 
 <head>
-    <meta charset="UTF-8">
-    <script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.js"></script>
-    <script type="text/javascript" src="/js/main_function.js"></script>
-    <script>$.get("/html/head.html", function (data) {$("head").append(data);});</script>
+	<meta charset="UTF-8">
+	<script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.js"></script>
+	<script type="text/javascript" src="/js/main_function.js"></script>
+	<script>$.get("/html/head.html", function (data) { $("head").append(data); });</script>
 </head>
 
 <body>
-    <div id="particle-container"></div>
-    <div id="header"></div>
-    <div class="slogan">ERRORE 404</div>
-    <div class="container error_404">
-        <div>
-            <h1 class="title_container">Cosa è successo?</h1>
-            <div class="text_container">
-                <p>
-                    Pensiamo che qualcosa sia andato storto.<br>
-                    Se pensi possa essere un problema del sito, faccelo sapere tramite e-mail <a href="/contact.html">cliccando qui</a>.
-                </p>
-            </div>
-        </div>
-        <div class="separator"></div>
-        <img class="img_container" src="/img/Icons/Undefined.png">
-    </div>
-    <div id="footer"></div>
+	<div id="particle-container"></div>
+	<div id="header"></div>
+	<div class="slogan">ERRORE 404</div>
+	<div class="container error_404">
+		<div>
+			<h1 class="title_container">Cosa è successo?</h1>
+			<div class="text_container">
+				<p>
+					Pensiamo che qualcosa sia andato storto.<br>
+					Se pensi possa essere un problema del sito, faccelo sapere tramite e-mail <a href="mailto:tommaso.bocchietti@gmail.com">cliccando qui</a>.
+				</p>
+			</div>
+		</div>
+		<div class="separator"></div>
+		<img class="img_container" src="/img/Icons/Undefined.png">
+	</div>
+	<div id="footer"></div>
 </body>
 
 <script>
-    main_element();
-    $(window).on('load', function () {
-      $('title').text('Bocchio | Errore 404 (not found)');
-    });
+	main_element();
+	$(window).on('load', function () {
+		$('title').text('Bocchio | Errore 404 (not found)');
+	});
 </script>
 
 </html>

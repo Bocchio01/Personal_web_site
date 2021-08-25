@@ -1,0 +1,152 @@
+:root {
+    --f_small: 13px;
+    --f_medium: 18px;
+    --f_big: 26px;
+}
+
+body {
+    display: flex;
+    flex-direction: row;
+}
+
+#map {
+    width: 100%;
+    height: 100%;
+}
+
+.sinistra {
+    overflow-y: auto;
+    height: 100vh;
+    width: 35%;
+    min-width: 500px;
+}
+
+.destra {
+    margin-left: 10px;
+    width: 65%;
+    height: 100vh;
+}
+
+.container {
+    display: block;
+}
+
+#Guida, #Dati {
+    padding: 10px;
+}
+
+.horizontal_line {
+    margin-top: 30px;
+    border-bottom: black 2px solid;
+    width: 80%;
+    margin-inline: auto;
+}
+
+.vertical_line {
+    border-right: black 2px solid;
+    height: 80vh;
+    margin-block: auto;
+    margin-left: 10px;
+}
+
+.footer_min {
+    padding: 10px;
+    bottom: 0px;
+    margin-inline: auto;
+    position: relative;
+}
+
+.footer_min #copyright {
+    font-size: var(--f_medium);
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+}
+
+span {
+    content: "\2195";
+    padding-inline: 8px;
+}
+
+.from, .to {
+    font-size: var(--f_medium);
+    display: flex;
+}
+
+input {
+    border-radius: 10px;
+    font-size: var(--f_medium);
+    width: 100%;
+    margin-inline: 7px;
+}
+
+table {
+    border-spacing: 5px;
+    font-size: var(--f_medium);
+    padding: 10px;
+    margin-block: 15px;
+    margin-inline: auto;
+    width: 90%;
+}
+
+.border {
+    border: 3px solid orange;
+    border-radius: 10px;
+}
+
+button {
+    background-color: var(--white);
+    border: 0px
+}
+
+@media (max-width: 1300px) {
+    .sinistra {
+        min-width: 400px !important;
+    }
+    :root {
+        --f_medium: 13px;
+        --f_big: 18px;
+        --max_font_size: 20px
+    }
+    h1 {
+        font-size: var(--max_font_size);
+    }
+    .compass-bg {
+        width: 100px !important;
+        height: 100px !important;
+        background-size: 100px
+    }
+    .compass-pointer {
+        width: 100px;
+    }
+}
+
+@media (max-width: 900px) {
+    .vertical_line {
+        display: none;
+    }
+    body {
+        flex-direction: column-reverse;
+    }
+    .destra {
+        width: 100%;
+        height: 80vh;
+        margin-left: 0px;
+    }
+    .sinistra {
+        min-width: unset !important;
+        width: 100%;
+        overflow: unset;
+    }
+}
+
+.compass-bg {
+    width: 200px;
+    height: 200px;
+    background-image: url("http://vasilis-tsirimokos.com/codepen/compass-bg.png");
+    margin-inline: auto;
+}
+
+.compass-pointer {
+    transform: rotate(45deg);
+}

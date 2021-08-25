@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+	<meta charset="UTF-8">
+	<script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.js"></script>
+	<script>$.get("/html/head.html", function (data) { $("head").append(data); $('style:last').remove(); $('title').text('Bocchio | Around_the_globe'); });</script>
+
+	<script type="text/javascript" src="https://unpkg.com/mathjs@9.4.4/lib/browser/math.js"></script>
+	<script type="text/javascript" src="Calculus.js"></script>
+
+	<link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+	<link rel="stylesheet" href="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.css" />
+
+	<script type="text/javascript" src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+	<script type="text/javascript" src="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.js"></script>
+
+	<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/leaflet.geodesic"></script>
+
+	<style>
+		@import url(../../css/IoT_base.css);
+		@import url(style.css);
+	</style>
+
+</head>
+
+<body>
+	<div class="sinistra">
+		<div class="hide_bar">
+			<ul class="menu">
+			</ul>
+		</div>
+		<div class="container">
+
+			<div id='Guida' style="display: none;">
+				<h1>Istruzioni</h1>
+				<p>
+					Questo script ti permetterà di calcolare con facilità l'azimut e la distanza tra due punti del
+					mondo.<br><br>
+					<b>Comandi disponibili</b> oltre all'inserimento/modifica manuale delle coordinate dai box input
+					sottostanti:
+				<ul>
+					<li>Ricerca coordinate -> Lente di ingrandiemnto in alto a destra sulla mappa</li>
+					<li>Selezione coordinate -> Click sulla mappa</li>
+					<li>Modifica coordinate -> Trascinamento del punto sulla mappa</li>
+					<li>Eliminazione coordinate -> Doppio click del punto sulla mappa</li>
+				</ul>
+				<br>
+				Con il tasto <span style="font-size: var(--f_medium);">&#8597;</span> è possibile invertire le
+				coordinate di partenza con quelle di
+				arrivo.<br>
+				Sulla mappa il punto di partenza è segnato in rosso, mentre quello di arrivo in verde.<br><br>
+				Tutti i risultati relativi ai dati inseriti si trovano a fine pagina.<br>
+				Per nascondere il riquadro "Istruzioni" cliccare sul menu a inizio pagina.
+
+				</p>
+				<div class="horizontal_line"></div>
+			</div>
+
+			<div id='Dati'>
+				<h1>Dati in input</h1>
+				<p>Inserisci di seguito le coordinate o clicca sulla mappa:</p>
+
+				<table class="border">
+					<tr>
+						<th><img src="https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-green.png"
+								height="25px" onclick="update_marker('partenza')"></th>
+						<th>
+							<input type="text" id="partenza" onchange="update_marker(this.id)">
+						</th>
+						<th rowspan="2"><button onclick="inverti()"><span
+									style="font-size: var(--f_big); padding-left: 15px;">&#8597;</span></button></th>
+						<th>
+							<button onclick="clean('partenza')">🗑️</button>
+						</th>
+					</tr>
+					<tr>
+						<th><img src="https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-red.png"
+								height="25px" onclick="update_marker('arrivo')"></th>
+						<th>
+							<input type="text" id="arrivo" onchange="update_marker(this.id)">
+						</th>
+						<th>
+							<button onclick="clean('arrivo')">🗑️</button>
+						</th>
+					</tr>
+				</table>
+
+				<h1>Dati in output</h1>
+				<p>Visualizza qui i risultati:</p>
+				<table>
+					<tr>
+						<th colspan="2">Indicazioni reali</th>
+					</tr>
+					<tr>
+						<th class="border">
+							<div class="compass-bg">
+								<img class="compass-pointer"
+								src="http://vasilis-tsirimokos.com/codepen/compass-pointer.png" />
+							</div>
+						</th>
+						<th class="border">
+							<p id="compass">Azimut: NaN</p>
+							<p id="compass_dist">Distanza: NaN</p>
+						</th>
+					</tr>
+					<tr>
+						<th colspan="2">Tunnel</th>
+					</tr>
+					<tr>
+						<th class="border">
+						</th>
+						<th class="border">
+							<div id="tunnel">Inclinazione: NaN</div>
+							<div id="tunnel_dist">Lunghezza: NaN</div>
+						</th>
+					</tr>
+				</table>
+
+
+
+
+			</div>
+
+		</div>
+		<div class="footer_min">
+			<p id="copyright"></p>
+			<script>
+				var date = new Date();
+				document.getElementById('copyright').innerHTML = "<a href='/Home.html' style='color: black;'>Tommaso Bocchietti © " + date.getFullYear() + "</a>";
+			</script>
+		</div>
+	</div>
+	<div class="vertical_line"></div>
+
+	<div class="destra">
+		<div id='map'></div>
+	</div>
+
+
+
+
+</body>
+
+
+
+
+<script>
+	$(window).on('load', function () {
+
+		$(".container > div").each((index, elem) => {
+
+			$('.menu:first').append($('<li>' + elem.id + '</li>').click(() => $('#' + elem.id).toggle()))
+
+		});
+	})
+
+	var map = L.map('map').locate({ watch: true, setView: true });
+
+	map.on('locationfound', function (e) { map.stopLocate() })
+
+	L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', { attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors' }).addTo(map);
+
+	L.Control.geocoder({ defaultMarkGeocode: false }).on('markgeocode', function (e) { map.setView(e.geocode.center, 10) }).addTo(map);
+	const geodesic = new L.Geodesic().addTo(map);
+
+	var p_count = 0
+	var a_count = 0
+	var from, to
+
+
+	map.on('click', function (e) {
+		var location = e.latlng;
+		if (p_count == 0) {
+			p_count = 1
+			from = create_marker('partenza', location)
+		}
+		else if (a_count == 0) {
+			a_count = 1
+			to = create_marker('arrivo', location)
+		}
+		else {
+			alert("Elimina o modifica uno dei due marker già creati per posizionarne un'altro.")
+		}
+		update_input()
+	});
+
+	function inverti() {
+
+		var partenza = $('#partenza').val()
+		var arrivo = $('#arrivo').val()
+		clean('partenza')
+		clean('arrivo')
+
+		$('#partenza').val(arrivo)
+		update_marker('partenza')
+		$('#arrivo').val(partenza)
+		update_marker('arrivo')
+
+	}
+
+	function create_marker(id, location) {
+
+		if (id == "partenza") var IconUrl = 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-green.png'
+		else var IconUrl = 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-red.png'
+
+		var myIcon = new L.Icon({
+			iconUrl: IconUrl,
+			shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png',
+			iconSize: [25, 41],
+			iconAnchor: [12, 41],
+			popupAnchor: [1, -34],
+			shadowSize: [41, 41]
+		});
+
+		selector = L.marker(location, { draggable: true, icon: myIcon }).bindPopup('<p>Punto di ' + id + '.<br> Coordinate: ' + location.lat + ', ' + location.lng + '</p>').addTo(map);
+		selector.on('dragend', () => update_input())
+		selector.on('dblclick', () => clean(id))
+
+		return selector
+	}
+
+
+	function update_input() {
+		if (p_count) $('#partenza').val(from.getLatLng().lat + ', ' + from.getLatLng().lng)
+		if (a_count) $('#arrivo').val(to.getLatLng().lat + ', ' + to.getLatLng().lng)
+
+		if (p_count && a_count) {
+			init()
+			geodesic.setLatLngs([from.getLatLng(), to.getLatLng()])
+			const distance = new L.Geodesic().distance(from.getLatLng(), to.getLatLng());
+			$('#compass_dist').text('Distanza: ' + (distance/1000).toFixed(2)+ 'km')
+		}
+		else geodesic.setLatLngs([])
+	}
+
+
+	function clean(selector) {
+		if (selector == 'partenza') {
+			$('#partenza').val('')
+			map.removeLayer(from)
+			p_count = 0
+		}
+		else {
+			$('#arrivo').val('')
+			map.removeLayer(to)
+			a_count = 0
+		}
+		geodesic.setLatLngs([])
+	}
+
+	function update_marker(id) {
+		if (id == 'partenza' && p_count == 0) {
+			from = create_marker('partenza', L.latLng($('#partenza').val().split(',')))
+			p_count = 1
+		}
+
+		if (id == 'arrivo' && a_count == 0) {
+			to = create_marker('arrivo', L.latLng($('#arrivo').val().split(',')))
+			a_count = 1
+		}
+
+		try {
+			if (id == 'partenza') from.setLatLng(L.latLng($('#partenza').val().split(',')))
+			else to.setLatLng(L.latLng($('#arrivo').val().split(',')))
+			update_input()
+			map.setView(L.latLng($('#' + id).val().split(','), 10))
+		} catch (error) {
+			alert('Il formato della coordinata geografica inserita è incorretto.\r\nInserisci: "latidudine, longitudine", eg "45.50, 12,34"')
+		}
+	}
+
+
+
+</script>
+
+</html>

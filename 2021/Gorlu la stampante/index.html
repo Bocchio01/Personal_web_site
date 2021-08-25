@@ -44,17 +44,17 @@
                 Python presenta infatti una sintassi molto leggera rispetto ad altri linguaggi (Java per esempio), e le innumerevoli librerie già presenti online sapevo ma avrebbero aiutato e velocizzato nella scrittura del codice. In particolar modo, ho adoperato:
             </p>
             <ul>
-                <li><a target="_blank" href="https://opencv.org/"><b>OpenCV</b></a> + <a target="_blank" href="https://python-pillow.org/"><b>PIL</b></a> per l'elaborazione e l'estrapolazione dei dati dalle immagini;</li>
-                <li><a target="_blank" href="https://numpy.org/"><b>NumPy</b></a> per la manipolazione di array e matrici;</li>
-                <li><a target="_blank" href="https://pythonhosted.org/pyserial/"><b>pySerial</b></a> per la comunicazione tramite porta USB con Arduino;</li>
-                <li><a target="_blank" href="https://tkdocs.com/"><b>Tkinter</b></a> per la creazione dell'interfaccia grafica dell'applicazione (GUI).</li>
+                <li><a href="https://opencv.org/"><b>OpenCV</b></a> + <a href="https://python-pillow.org/"><b>PIL</b></a> per l'elaborazione e l'estrapolazione dei dati dalle immagini;</li>
+                <li><a href="https://numpy.org/"><b>NumPy</b></a> per la manipolazione di array e matrici;</li>
+                <li><a href="https://pythonhosted.org/pyserial/"><b>pySerial</b></a> per la comunicazione tramite porta USB con Arduino;</li>
+                <li><a href="https://tkdocs.com/"><b>Tkinter</b></a> per la creazione dell'interfaccia grafica dell'applicazione (GUI).</li>
             </ul>
         </div>
     
         <div class="paragraph">
             <h2>L'algoritmo</h2>
             <p> 
-                L'algoritmo principale, ovvero quello che si occupa della stampa di immagini digitali, è sostanzialmente un algoritmo di ricerca e ordinamento.<br> Data un'immagine in input, il programma esegue una ricerca dei pixel che compongono i tratti principali dell'immagine utilizzando la <b>funzione <a target="_blank" href="https://docs.opencv.org/3.4/da/d22/tutorial_py_canny.html">Canny()</a> presente in OpenCV</b>.
+                L'algoritmo principale, ovvero quello che si occupa della stampa di immagini digitali, è sostanzialmente un algoritmo di ricerca e ordinamento.<br> Data un'immagine in input, il programma esegue una ricerca dei pixel che compongono i tratti principali dell'immagine utilizzando la <b>funzione <a href="https://docs.opencv.org/3.4/da/d22/tutorial_py_canny.html">Canny()</a> presente in OpenCV</b>.
             </p>
             <div class="media_block">
                 <img src="https://www.mathworks.com/matlabcentral/mlc-downloads/downloads/submissions/51124/versions/1/screenshot.jpg">
@@ -146,7 +146,7 @@
             </p>
             <br>
             <p>
-                Passando ora alla parte software, l'intero codice necessario per il corretto funzionamento è reperibile alla <a target="_blank" href="https://github.com/Bocchio01/Arduino_CNC_plotter">pagina GitHub del progetto</a>.<br>
+                Passando ora alla parte software, l'intero codice necessario per il corretto funzionamento è reperibile alla <a href="https://github.com/Bocchio01/Arduino_CNC_plotter">pagina GitHub del progetto</a>.<br>
                 Per poterlo scaricare basterà <b>cliccare sul tasto verde "Code" e successivamente su "download ZIP"</b>. All'interno della cartella, troverete questi file:
             </p>
             <div class="media_block">
@@ -154,8 +154,8 @@
                 <p>Files presenti nella repository del progetto</p>
             </div>
             <p>
-                Nella cartella "Arduino_code", potrete trovare lo sketch da caricare tramite l'IDE Arduino direttamente sulla scheda. Da notare che è necessario importare la libreria <a target="_blank" href="https://learn.adafruit.com/adafruit-motor-shield/library-install"><b>AF_Motor.h</b></a>.<br>
-                Per quanto riguarda poi l'algoritmo principale, è necessario scaricare ed installare sul proprio PC l'interprete di Python e le librerie aggiuntive. Python è facilmente <a target="_blank" href="https://www.python.org/downloads/"><b>scaricabile da questo link</b></a>, mentre le librerie necessarie occorre installarle da terminale:
+                Nella cartella "Arduino_code", potrete trovare lo sketch da caricare tramite l'IDE Arduino direttamente sulla scheda. Da notare che è necessario importare la libreria <a href="https://learn.adafruit.com/adafruit-motor-shield/library-install"><b>AF_Motor.h</b></a>.<br>
+                Per quanto riguarda poi l'algoritmo principale, è necessario scaricare ed installare sul proprio PC l'interprete di Python e le librerie aggiuntive. Python è facilmente <a href="https://www.python.org/downloads/"><b>scaricabile da questo link</b></a>, mentre le librerie necessarie occorre installarle da terminale:
             </p>
             <ol>
                 <li>Aprire il terminale e navigare fino alla cartella "Scripts" contenuta nella directory di Python (con Windows digitare <code>cd C:\Users\*Nome_utente*\AppData\Local\Programs\Python\Python39\Scripts</code>);</li>
@@ -172,15 +172,15 @@
             <h2>Allegati</h2>
             <p>Di seguito trovate vari link ai materiali e alcuni files utili per realizzare il progetto.</p>
             <div class="allegati_link">
-                <label><a target="_blank" href="https://www.amazon.it/Elegoo-ATmega328P-ATMEGA16U2-Compatibile-Microcontrollore/dp/B01MRJR8UF/ref=sr_1_8?__mk_it_IT=%C3%85M%C3%85%C5%BD%C3%95%C3%91&dchild=1&keywords=arduino&qid=1623170794&s=electronics&sr=1-8">Scheda Arduino;</a></label></label>
-                <label><a target="_blank" href="https://www.amazon.it/Pixnor-L293D-Shield-Arduino-Duemilanove/dp/B0113YH5JA/ref=sr_1_1?__mk_it_IT=%C3%85M%C3%85%C5%BD%C3%95%C3%91&dchild=1&keywords=PIXNOR+L293D+Drive+Motor+Shield+per+Arduino+Duemilanove+Uno+Mega+R3+AVR+AT&qid=1623170749&s=electronics&sr=1-1">Scheda L293D;</a></label></label>
-                <label><a target="_blank" href="https://www.ebay.it/itm/274750012775?_trkparms=aid%3D1110006%26algo%3DHOMESPLICE.SIM%26ao%3D1%26asc%3D20201210111314%26meid%3Ddfe560919ca346ecad0375a3df77ede7%26pid%3D101195%26rk%3D2%26rkt%3D12%26sd%3D402887744438%26itm%3D274750012775%26pmt%3D1%26noa%3D0%26pg%3D2047675%26algv%3DSimplAMLv9PairwiseUnbiasedWeb%26brand%3DHLDS&_trksid=p2047675.c101195.m1851&amdata=cksum%3A274750012775dfe560919ca346ecad0375a3df77ede7%7Cenc%3AAQAFAAACEDMNLC%252FxoOINYkwaeg7KQdqQ%252FhmIrX03V3%252F%252FsAo7li%252F7z4edSWCtaHcLA%252BfpxlAVqIRwXAi2rDUU3ou03aBQcyUaakLwXiS95Hud83MvnBsGEcqFp2X9ZfX4UV2KcsOcwG184n8KvSbXVDVf97%252FHh4s082fGgdLwDLCHsNkwE8ySC08dLhsWdgiDqXiOtCrtnn5G%252BOuXxWwTOPmdi70ZYuqy84tS3I%252BR7btNKUtoqnpnRJ6aDLyp02Fgg%252BhW6LMHcx2QGuBIh%252FXnuTo3Qo1rnOpp82hpp3jsbhwV7XMoOcfHFJF6WgLYNSBWMljCarpae%252BDTbAqgr5jmqIcQUdcTGbcUwrIlbxp9JKa0alAe3iY%252FTBR31VBH4dL0lvzJM8Ph%252BlZPA29Euu30DZeaa3Ycb06UguY%252B%252BahCWiFJtCLDvTZgT1bD2w5JnxYf7uNE36QDfHGOOx5O1Jl0vSLgC9ZS28SfZPo8%252B7h5GOIsP48qWeqQNhM5LjPakV8Ck9t5G72dnE9PccsNnS%252FKxfQ7YZE1JkNqrgiuLaRRdZFmPhHvozP58U5kn9ZIHqbM1HEE9pJYU6r4%252FHfRwuBLCD1jhT84X4KAlopzElS2CrZts78c7A9gslWYBHbcyc0CCDxeFh8V4qbO5XJbl9iVskw1o8LWhHKVb7Je9Aw1Ff5VAwh88HV9xvczPEEqnGeW%252B%252BOWrjp02g%253D%253D%7Campid%3APL_CLK%7Cclp%3A2047675&epid=645575573">Lettori DVD;</a></label></label>
-                <label><a target="_blank" href="https://www.amazon.it/ZHITING-micro-servomotore-Camminare-elicottero-Aeroplano/dp/B088NQTBPB/ref=sr_1_16?__mk_it_IT=%C3%85M%C3%85%C5%BD%C3%95%C3%91&crid=6O7XDUKCOWL8&dchild=1&keywords=servo+motore+arduino&qid=1623170644&sprefix=servo+motore%2Caps%2C220&sr=8-16">Servo motore;</a></label></label>
-                <label><a target="_blank" href="https://www.amazon.it/EasyULT-Adattatore-Alimentazione-Alimentatore-Elettronica/dp/B08HRNPBCM/ref=sr_1_1?__mk_it_IT=%C3%85M%C3%85%C5%BD%C3%95%C3%91&dchild=1&keywords=EasyULT+12W+Adattatore+di+Alimentazione%2C+Alimentatore+Switching+CA%2FCC+Universale+con+8+Spine%2C+per+3V-12V+Elettronica+Domestica%2C+1000+mA+Max+%28Nero%29&qid=1623170715&s=electronics&sr=1-1">Alimentatore esterno;</a></label></label>
+                <label><a href="https://www.amazon.it/Elegoo-ATmega328P-ATMEGA16U2-Compatibile-Microcontrollore/dp/B01MRJR8UF/ref=sr_1_8?__mk_it_IT=%C3%85M%C3%85%C5%BD%C3%95%C3%91&dchild=1&keywords=arduino&qid=1623170794&s=electronics&sr=1-8">Scheda Arduino;</a></label></label>
+                <label><a href="https://www.amazon.it/Pixnor-L293D-Shield-Arduino-Duemilanove/dp/B0113YH5JA/ref=sr_1_1?__mk_it_IT=%C3%85M%C3%85%C5%BD%C3%95%C3%91&dchild=1&keywords=PIXNOR+L293D+Drive+Motor+Shield+per+Arduino+Duemilanove+Uno+Mega+R3+AVR+AT&qid=1623170749&s=electronics&sr=1-1">Scheda L293D;</a></label></label>
+                <label><a href="https://www.ebay.it/itm/274750012775?_trkparms=aid%3D1110006%26algo%3DHOMESPLICE.SIM%26ao%3D1%26asc%3D20201210111314%26meid%3Ddfe560919ca346ecad0375a3df77ede7%26pid%3D101195%26rk%3D2%26rkt%3D12%26sd%3D402887744438%26itm%3D274750012775%26pmt%3D1%26noa%3D0%26pg%3D2047675%26algv%3DSimplAMLv9PairwiseUnbiasedWeb%26brand%3DHLDS&_trksid=p2047675.c101195.m1851&amdata=cksum%3A274750012775dfe560919ca346ecad0375a3df77ede7%7Cenc%3AAQAFAAACEDMNLC%252FxoOINYkwaeg7KQdqQ%252FhmIrX03V3%252F%252FsAo7li%252F7z4edSWCtaHcLA%252BfpxlAVqIRwXAi2rDUU3ou03aBQcyUaakLwXiS95Hud83MvnBsGEcqFp2X9ZfX4UV2KcsOcwG184n8KvSbXVDVf97%252FHh4s082fGgdLwDLCHsNkwE8ySC08dLhsWdgiDqXiOtCrtnn5G%252BOuXxWwTOPmdi70ZYuqy84tS3I%252BR7btNKUtoqnpnRJ6aDLyp02Fgg%252BhW6LMHcx2QGuBIh%252FXnuTo3Qo1rnOpp82hpp3jsbhwV7XMoOcfHFJF6WgLYNSBWMljCarpae%252BDTbAqgr5jmqIcQUdcTGbcUwrIlbxp9JKa0alAe3iY%252FTBR31VBH4dL0lvzJM8Ph%252BlZPA29Euu30DZeaa3Ycb06UguY%252B%252BahCWiFJtCLDvTZgT1bD2w5JnxYf7uNE36QDfHGOOx5O1Jl0vSLgC9ZS28SfZPo8%252B7h5GOIsP48qWeqQNhM5LjPakV8Ck9t5G72dnE9PccsNnS%252FKxfQ7YZE1JkNqrgiuLaRRdZFmPhHvozP58U5kn9ZIHqbM1HEE9pJYU6r4%252FHfRwuBLCD1jhT84X4KAlopzElS2CrZts78c7A9gslWYBHbcyc0CCDxeFh8V4qbO5XJbl9iVskw1o8LWhHKVb7Je9Aw1Ff5VAwh88HV9xvczPEEqnGeW%252B%252BOWrjp02g%253D%253D%7Campid%3APL_CLK%7Cclp%3A2047675&epid=645575573">Lettori DVD;</a></label></label>
+                <label><a href="https://www.amazon.it/ZHITING-micro-servomotore-Camminare-elicottero-Aeroplano/dp/B088NQTBPB/ref=sr_1_16?__mk_it_IT=%C3%85M%C3%85%C5%BD%C3%95%C3%91&crid=6O7XDUKCOWL8&dchild=1&keywords=servo+motore+arduino&qid=1623170644&sprefix=servo+motore%2Caps%2C220&sr=8-16">Servo motore;</a></label></label>
+                <label><a href="https://www.amazon.it/EasyULT-Adattatore-Alimentazione-Alimentatore-Elettronica/dp/B08HRNPBCM/ref=sr_1_1?__mk_it_IT=%C3%85M%C3%85%C5%BD%C3%95%C3%91&dchild=1&keywords=EasyULT+12W+Adattatore+di+Alimentazione%2C+Alimentatore+Switching+CA%2FCC+Universale+con+8+Spine%2C+per+3V-12V+Elettronica+Domestica%2C+1000+mA+Max+%28Nero%29&qid=1623170715&s=electronics&sr=1-1">Alimentatore esterno;</a></label></label>
             </div>
             <div class="allegati_file">
                 <div class="file_box">
-                    <a class="link_hidden" target="_blank"></a>
+                    <a class="link_hidden"></a>
                     <img>
                     <p></p>
                 </div>

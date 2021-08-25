@@ -13,11 +13,9 @@
   <div id="particle-container"></div>
   <div class="slogan">What's Next?</div>
   
-  <nav class="sub_menu_wrapper"></nav>
-
   <main class="list_container forum_grid">
-    <div class="container">
-        <a class="link_hidden">Vai al portale</a>
+    <div class="container d0">
+        <a class="link_hidden" target="_self">Vai al portale</a>
         <div>
             <h1 class="title_container"></h1>
             <div class="text_container"></div>
@@ -35,7 +33,6 @@
   main_element();
   $(window).on('load', function () {
       $('style').append("@import url(/css/forum.css);")
-      load_articles_menu();
       load_articles("", 'data_IoT.json');
       $('title').text('Bocchio | IoT section!');
   });

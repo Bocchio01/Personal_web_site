@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.js"></script>
-  <script type="text/javascript" src="/main_function.js"></script>
+  <script type="text/javascript" src="/js/main_function.js"></script>
   <script>$.get("/html/head.html", function (data) {$("head").append(data);});</script>
 </head>
 
@@ -15,26 +15,7 @@
   <div class="slogan">What's Next?</div>
 
   <main>
-    <div class="embedded_img">
-      <img>
-      <p></p>
-    </div>
 
-    <div class="article">
-      <h1 class="title"></h1>
-      <img class="media_block" src="img/Inutilizzati/Chi_sono.jpg">
-    
-      <div>
-        <h2>Titolo paragrafo</h2>
-        <p>Contenuto paragrafo</p>
-    
-        <div class="media_block">
-          <img src="http://">
-          <p>Descrizione immagine</p>
-        </div>
-      </div>
-    
-    </div>
     
   </main>
 
@@ -43,12 +24,9 @@
 </body>
 
 <script>
-  main_element();
   $(window).on('load', function () {
-    embedded_img();
-    $('title').text('Bocchio | ' + $('h1.title').text());
-    add_attachments(window.location.pathname + 'Allegati/');
-    add_link_articles($('h1.title').text());
+    main_element();
+    $('title').text('Bocchio | ');
   });
 </script>
 
